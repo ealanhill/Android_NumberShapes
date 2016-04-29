@@ -77,7 +77,7 @@ public class NumberShapes extends AppCompatActivity {
     private boolean isNullOrEmpty(EditText text) {
         return text == null || // check if the EditText is null
                 text.getText() == null || // check if the text within the object is null
-                text.getText().toString().equals(""); // finally, check to see if the text is empty
+                text.getText().toString().isEmpty(); // finally, check to see if the text is empty
     }
 
     /**
