@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Number Shapes</string>
+    <string name="action_settings">Settings</string>
+    <string name="userInquiry">Please enter a number to see if it is Triangular, Square, or both:</string>
+</resources>
