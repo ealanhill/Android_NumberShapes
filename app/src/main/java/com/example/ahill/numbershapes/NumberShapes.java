@@ -43,6 +43,7 @@ public class NumberShapes extends AppCompatActivity {
 
         // get the number the user entered
         int userNumber = Integer.parseInt(userText.getText().toString());
+        Number number = new Number(userNumber);
 
         // check to ensure we are not getting a negative number, which are neither triangular or square
         if (userNumber < 0) {
@@ -52,8 +53,8 @@ public class NumberShapes extends AppCompatActivity {
         }
 
         // check to see if the number is triangular or square
-        boolean isTriangular = isTriangular(userNumber);
-        boolean isSquare = isPerfectSquare(userNumber);
+        boolean isTriangular = number.isTriangular();
+        boolean isSquare = number.isPerfectSquare();
 
         // display the appropriate message to the user
         if (isSquare && isTriangular) {
@@ -86,41 +87,6 @@ public class NumberShapes extends AppCompatActivity {
      */
     private void displayMessage(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    }
-
-    /**
-     * Checks to see if a given number is triangular or not
-     * @param numberToCheck
-     * @return
-     */
-    private boolean isTriangular(int numberToCheck) {
-        // a triangular number is found in the formula ( n (n + 1) ) / 2,
-        // if we set the triangular number equal the above formula, we get:
-        // 8T + 1 = (2n + 1)^2,
-        // so a triangular number is one where 8T + 1 is odd and a perfect square
-        int value = 8 * numberToCheck + 1;
-
-        Log.i("Info", "value = " + value);
-
-        // check for the value to be odd
-        return value % 2 != 0 && isPerfectSquare(value);
-    }
-
-    /**
-     * Checks to see if the given number is a perfect square.
-     *
-     * @param numberToCheck
-     * @return
-     */
-    private boolean isPerfectSquare(int numberToCheck) {
-        // perform the square root of the number
-        double squareRoot = Math.sqrt((double) numberToCheck);
-
-        Log.i("Info", "square root = " + squareRoot);
-
-        // get any remainder after the decimal point in the square root value, and check to see
-        // if it is equal to 0, a zero value indicates a perfect square
-        return (squareRoot - Math.floor(squareRoot)) == 0;
     }
 
     @Override
